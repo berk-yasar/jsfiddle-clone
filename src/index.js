@@ -24,7 +24,12 @@ new CSSComponent(components.cssComponent);
 new HTMLComponent(components.htmlComponent);
 new JSComponent(components.jsComponent);
 
-const maximizeButton = document.querySelector('button.maximize-btn');
+const buttons = {
+    maximizeButton: document.querySelector('button.maximize-btn'),
+    saveButton: document.querySelector('button.save-btn'),
+    historyButton: document.querySelector('button.history-btn')
+}
+
 const bottomContainer = document.querySelector('.bottom-container');
 const inputs = {
     cssInput: document.querySelector('[data-css] textarea'),
@@ -79,12 +84,32 @@ if (lastSession) {
     update();
 }
 
-maximizeButton.addEventListener('click', () => {
+buttons.maximizeButton.addEventListener('click', () => {
     if (getComputedStyle(bottomContainer).display === 'flex') {
         bottomContainer.style.display = 'none';
-        maximizeButton.textContent = 'Minimize';
+        buttons.maximizeButton.textContent = 'Minimize';
     } else {
         bottomContainer.style.display = 'flex';
-        maximizeButton.textContent = 'Maximize';
+        buttons.maximizeButton.textContent = 'Maximize';
     } 
+});
+
+buttons.saveButton.addEventListener('click', () =>  {
+    let saveEntry = [];
+    let currentSave = {};
+    let inputValues = {
+        cssValue: inputs.cssInput.value,
+        jsValue: inputs.jsInput.value,
+        htmlValue: inputs.htmlInput.value,
+    }
+
+    let saveName = prompt('Please give a name for your code');
+
+    currentSave[saveName] = inputValues;
+    saveEntry.push(currentSave);
+
+    let history = JSON.parse(window.localStorage.getItem('history'));
+
+    history && saveEntry.push(history);
+    window.localStorage.setItem('history', JSON.stringify(saveEntry));
 });
