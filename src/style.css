@@ -1,35 +1,100 @@
 body {
-    margin: 0;
-    padding: 0;
-    background: #eee;
-    width: 100%;
-    height: 100vh;
+  margin: 0;
+  padding: 0;
+  background: #eee;
+  width: 100%;
+  height: 100vh;
+  display: block;
+  font-size: 14px;
+}
+
+.editor-wrapper,
+.top-container,
+.bottom-container,
+.result-component,
+.html-component,
+.css-component,
+.js-component {
+  display: flex;
+  flex: 1;
+}
+
+.editor-wrapper {
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+}
+
+.top-container {
+  flex-direction: column;
+  border-bottom: 1px solid;
+}
+
+.bottom-container {
+  flex-direction: row;
+  display: flex;
+}
+
+.html-component,
+.css-component,
+.js-component,
+.result-component {
+  max-width: calc(100% - 32px);
+  padding: 0 16px;
+}
+
+.result-component {
+  flex-direction: column;
+}
+
+.result-component iframe {
+  flex: 1;
+}
+
+.result-component .result-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.bottom-container section {
+  flex-direction: column;
+  border-right: 1px solid;
+}
+
+.bottom-container section:last-child {
+  border-right: none;
+}
+
+textarea {
+  height: 100%;
+}
+
+.iframe {
+  position: relative;
+  border: 1px solid;
+  border-bottom: none;
+  background-color: #fff;
+}
+
+.iframe,
+iframe {
+  width: 100%;
+  height: 100%;
+}
+
+button.maximize-btn {
+  display: none;
+  background-color: blue;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  position: absolute;
+  right: 5px;
+  top: 5px;
+}
+
+.iframe:hover button.maximize-btn {
     display: block;
-    font-size: 14px;
-  }
-  
-  .editor-wrapper,
-  .top-container,
-  .bottom-container,
-  .result-component,
-  .html-component,
-  .css-component,
-  .js-component {
-    display: flex;
-    flex: 1;
-  }
-  
-  .editor-wrapper {
-    flex-direction: column;
-    width: 100%;
-    height: 100%;
-  }
-  
-  .top-container {
-    flex-direction: column;
-  }
-  
-  .bottom-container {
-    flex-direction: row;
-  }
-  
+}

@@ -1,4 +1,3 @@
 export function HTMLComponent(htmlComponent) {
-  console.log(htmlComponent);
-  htmlComponent.innerHTML = "<h2>HTML</h2>";
+  htmlComponent.innerHTML = `<h2>HTML</h2><textarea class="html-input"></textarea>`;
 }

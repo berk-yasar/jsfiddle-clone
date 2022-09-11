@@ -1,4 +1,3 @@
 export function JSComponent(jsComponent) {
-  console.log(jsComponent);
-  jsComponent.innerHTML = "<h2>JS</h2>";
+  jsComponent.innerHTML = `<h2>JavaScript</h2><textarea class="html-input"></textarea>`;
 }
