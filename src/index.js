@@ -1,15 +1,8 @@
-import {
-    ResultComponent
-} from "../components/result.component.js.js";
-import {
-    CSSComponent
-} from "../components/css.component.js";
-import {
-    HTMLComponent
-} from "../components/html.component.js";
-import {
-    JSComponent
-} from "../components/js.component.js";
+import './style.css';
+import { ResultComponent } from "./components/result.component";
+import { CSSComponent } from "./components/css.component";
+import { HTMLComponent } from "./components/html.component";
+import { JSComponent } from "./components/js.component";
 
 const resultComponent = document.querySelector("[data-result]");
 const cssComponent = document.querySelector("[data-css]");
